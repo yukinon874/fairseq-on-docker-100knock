@@ -2,7 +2,7 @@
 
 [Fairseq](https://github.com/pytorch/fairseq)をDocker上で動かすためのレポジトリ
 
-How to setup
+- How to setup
 ```How to setup
 git clone git@github.com:yukinon874/fairseq-on-docker-100knock.git
 cd fairseq-on-docker-100knock
