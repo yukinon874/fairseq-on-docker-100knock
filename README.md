@@ -52,8 +52,8 @@ docker exec -it fairseq-on-docker-100knock-fairseq-1 bash
 └── shell  # binded to /code/shell
 ```
 
-- `/work00/<your_username>/fairseq_on_docker` is also bind mounted to the container
-  - If you save something in `/work` of the container, then it will be synced to the host.
+- `/work00` is also bind mounted to the container
+  - If you save something in `/work00` of the container, then it will be synced to the host.
 
 # Misc.
 
