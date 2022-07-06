@@ -2,8 +2,6 @@
 
 [Fairseq](https://github.com/pytorch/fairseq)をDocker上で動かすためのレポジトリ
 
-# How to Train Transformer NMT Model on IWSLT 
-
 ```How to setup
 git clone git@github.com:yukinon874/fairseq-on-docker-100knock.git
 cd fairseq-on-docker-100knock
@@ -19,13 +17,22 @@ docker compose up -d
 
 # attach to running container
 # **コンテナの名前は適宜 docker ps で確認すること**
-docker exec -it fairseq_on_docker-fairseq-1 bash
+docker exec -it fairseq-on-docker-100knock-fairseq-1 bash
 
 # 以降はコンテナ内部で実行される
 # プロンプトが
 # root@c187cecdbc1c:/code/fairseq#
 # みたいになっていればOK
 
+
+```
+- コンテナを抜けたい場合は`exit`もしくは`ctrl-p → ctrl-q`で抜けることができる．
+    - `ctrl-d`を使って抜けるとコンテナが停止するので注意が必要．
+    - もしコンテナが停止してしまった場合は`docker start fairseq-on-docker-100knock-fairseq-1`で起動することができる．
+
+- 一度セットアップを行ったら次回以降は次のコマンドでコンテナに入ることができる．
+```
+docker exec -it fairseq-on-docker-100knock-fairseq-1 bash
 ```
 
 # Repository Overview
@@ -38,16 +45,14 @@ docker exec -it fairseq_on_docker-fairseq-1 bash
 <project_root>
 ├── Dockerfile
 ├── README.md
-├── build.sh
+├── docker-compose.yml
 ├── entrypoint.sh
 ├── fairseq  # binded to /code/fairseq
-├── interactive.sh 
 └── shell  # binded to /code/shell
 ```
 
 - `/work00/<your_username>/fairseq_on_docker` is also bind mounted to the container
   - If you save something in `/work` of the container, then it will be synced to the host.
-- If you want to bind another directory, edit `interactive.sh`
 
 # Misc.
 
